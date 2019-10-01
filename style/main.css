@@ -12,16 +12,17 @@ body{
 }
 
 .sprite{
-    height: 70px;
-    width: 70px; 
+    height: 35px;
+    width: 35px; 
 }
 
 #edit-background{
     position: absolute;
     right: 0px;
     top: 0px;
-    background-image: url("../img/icons.jpg");
-    background-position: -200px -30px;
+    background-image: url("../img/sprite.png");
+    background-repeat: no-repeat;
+    background-position-x: -45px; 
 }
 
 #choice{
@@ -38,6 +39,40 @@ img:hover{
     box-shadow: 0 0 7px 0 green;
 }
 
-.ui-draggable, .ui-droppable {
-	background-position: top;
+ul {
+    opacity: 0.7;
+    text-align: left;
+    background: rgb(235, 235, 235);
+    padding-top:20px;
+    padding-bottom: 14px;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+li{
+    opacity: 0.7;
+    display: inline;
+    background: white;
+    padding: 15px;
+    border: 1px solid black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: none;
+}
+
+li:hover{
+    background-color: gold;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+.tabs{
+    display: none;
+}
+
+.tabs:nth-child(2){
+    display: block;
 }

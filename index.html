@@ -6,52 +6,68 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Task-man</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="style/main.css">
-    <link rel="stylesheet" href="node_modules/jquery-ui/themes/base/core.css">
 </head>
 <body>
     <div class="work-zone" id="tasks">
         <ul>
-            <li><a href="#tabs-1">Общая занятость</a></li> 
-            <li><a href="#tabs-2">Аня</a></li> 
-            <li><a href="#tabs-3">Вова</a></li> 
-            <li><a href="#tabs-4">Кирилл</a></li> 
-            <li><a href="#tabs-5">Вася</a></li> 
-            <li><a href="#tabs-6">Подкинуть задачку</a></li> 
+            <li onclick="on_zone('tabs-1',this)"><a href="#tabs-1"></a>Общая занятость</a></li> 
+            <li onclick="on_zone('tabs-2',this)"><a href="#tabs-2">Вася</a></li> 
+            <li onclick="on_zone('tabs-3',this)"><a href="#tabs-3">Вова</a></li> 
+            <li onclick="on_zone('tabs-4',this)"><a href="#tabs-4">Кирилл</a></li> 
+            <li onclick="on_zone('tabs-5',this)"><a href="#tabs-5">Аня</a></li> 
+            <li onclick="on_zone('tabs-6',this)"><a href="#tabs-6">Саша</a></li> 
+            <li onclick="on_zone('tabs-99',this)"><a href="#tabs-99">Подкинуть задачку</a></li> 
         </ul> 
-        <div id="tabs-1">
-            <h4>Текущие задачи</h4>
-            <ul id="tasks_n"></ul>
-        </div> 
-        <div id="tabs-2">
-            <h4>Текущие задачи</h4>
-            <ul id="tasks_vr"></ul>		
-        </div>
-        <div id="tabs-3">
-            <h4>Текущие задачи</h4>
-            <ul id="tasks_k"></ul>
-        </div> 
-        <div id="tabs-4">
-            <h4>Текущие задачи</h4>
-            <ul id="tasks_vv"></ul>		
-        </div>
-        <div id="tabs-5">
+        <div class="tabs" id="tabs-1">
             <h4>Общая занятость</h4>
-            <ul id="tasks_all"></ul>
+            <ul></ul>
         </div>
-        <div id="tabs-6">
+        <div class="tabs" id="tabs-2">
+            <h4>Текущие задачи</h4>
+            <ul></ul>
+        </div> 
+        <div class="tabs" id="tabs-3">
+            <h4>Текущие задачи</h4>
+            <ul></ul>		
+        </div>
+        <div class="tabs" id="tabs-4">
+            <h4>Текущие задачи</h4>
+            <ul></ul>
+        </div> 
+        <div class="tabs" id="tabs-5">
+            <h4>Текущие задачи</h4>
+            <ul></ul>		
+        </div>
+        <div class="tabs" id="tabs-6">
+            <h4>Текущие задачи</h4>
+            <ul></ul>		
+        </div>
+        <div class="tabs" id="tabs-99">
             <h4>Да давааай уже, ну</h4>
             <form action="service.php" id="addTask" name="addTask" method="POST">
-                Кому: <input type="text" name="txtFirstName" id="txtFirstName"> <br>
-                Задача: <input type="text" name="task_description" id="task_description"> <br>
+                Кому: <input type="text" name="txtFirstName" id="txtFirstName" list="sw"> <br>
+                Задача: <input type="text" name="task_description" id="task_description" list="sw_qa_so"> <br>
+                Проект: <input type="text" name="project_name" id="project_name"> <br>
                 Срочность (1 - первая срочность, 10 - забей, пока не освободишься):
                 <input type="text" name="task_priority" id="task_priority" size="10" maxlength="2">
                 <br><br>
                 <button type="submit" name="btnSave" id="btnSave">Добавить</button>
                 <input type="hidden" name="action" value="addTask" id="action">
             </form>
+            <datalist id="sw">
+                <option value="Аня"></option>
+                <option value="Вася"></option>
+                <option value="Вова"></option>
+                <option value="Кирилл"></option>
+                <option value="Саша"></option>
+            </datalist>
+            <datalist id="sw_qa_so">
+                <option value="SW"></option>
+                <option value="QA"></option>
+                <option value="SO"></option>
+                <option value="Творческое задание"></option>
+            </datalist>
         </div>
     </div>
 
@@ -68,13 +84,7 @@
              было загружать новые варианты обоев через сайт, и они бы подгружались в общую базу-->
     </div>
 
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $( function() {
-        $( "#tasks" ).tabs();
-        } );
-    </script>
     <script src="src/background-choise.js"></script>
+    <script src="src/btn-reaction.js"></script>
 </body>
 </html>
